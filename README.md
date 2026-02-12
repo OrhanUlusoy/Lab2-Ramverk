@@ -14,6 +14,8 @@
 
 ## Experiments
 
+Not: Resultaten kan variera något mellan körningar.
+
 | Experiment | epochs | batch_size | learning_rate | Final Accuracy |
 |-----------|--------|------------|---------------|----------------|
 | A (baseline) | 3 | 32 | 0.001 | 63.77% |
