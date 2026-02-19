@@ -1,5 +1,25 @@
 {
-    "epochs": 3,
-    "batch_size": 32,
-    "learning_rate": 0.001
+    "seed": 42,
+    "data_root": "data/cifar10",
+    "download": false,
+    "experiments": [
+        {
+            "name": "A (baseline)",
+            "epochs": 3,
+            "batch_size": 32,
+            "learning_rate": 0.001
+        },
+        {
+            "name": "B (higher lr)",
+            "epochs": 3,
+            "batch_size": 32,
+            "learning_rate": 0.01
+        },
+        {
+            "name": "C (bigger batch)",
+            "epochs": 3,
+            "batch_size": 64,
+            "learning_rate": 0.001
+        }
+    ]
 }

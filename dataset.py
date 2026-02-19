@@ -5,20 +5,23 @@ Syfte:
 - Ge ett enhetligt PyTorch `Dataset`-gränssnitt som kan matas till `DataLoader`.
 """
 
-from torchvision.datasets import CIFAR10
-from torchvision import transforms
 from torch.utils.data import Dataset
+from torchvision import transforms
+from torchvision.datasets import CIFAR10
 
 
 class CIFAR10Wrapper(Dataset):
-    def __init__(self, root="data/cifar10", train=True):
+    def __init__(self, root="data/cifar10", train=True, download=False):
         # Minimal preprocessing: konvertera till tensor (skalar till [0,1] och CHW-format).
-        self.transform = transforms.Compose(
-            [
-                transforms.ToTensor(),
-            ]
+        # Hålls medvetet enkel för labben.
+        self.transform = transforms.Compose([transforms.ToTensor()])
+
+        self.ds = CIFAR10(
+            root=root,
+            train=train,
+            download=download,
+            transform=self.transform,
         )
-        self.ds = CIFAR10(root=root, train=train, download=True, transform=self.transform)
 
     def __len__(self):
         return len(self.ds)
